@@ -102,7 +102,7 @@ export function member(node: TreeNode, part: string) {
 	}
 
 	if (node.kind != "object" || itemIndex(part) >= 0) return null;
-	return node.items.find(each => sameKey(node, each.key, part));
+	return node.items.find(each => sameKey(node, each.key, part)) ?? null;
 }
 
 /** The node a path leads to; the node itself for "". */
