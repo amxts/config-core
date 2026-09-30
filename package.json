@@ -1,0 +1,66 @@
+{
+	"name": "@amxts/config-core",
+	"type": "module",
+	"version": "0.1.0",
+	"description": "Configs in INI, YAML or JSON for amxts plugins, read into typed objects and written back - and the cfg_* natives for Pawn plugins.",
+	"author": {
+		"name": "kukson777",
+		"url": "https://github.com/kukson777"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/amxts/config-core#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/amxts/config-core.git"
+	},
+	"keywords": [
+		"amxts-module",
+		"amxts-config",
+		"amxmodx",
+		"counter-strike"
+	],
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"types": "./src/index.ts",
+	"files": [
+		"PAWN.md",
+		"PAWN.ru.md",
+		"README.md",
+		"README.ru.md",
+		"include",
+		"scripts/docs",
+		"src"
+	],
+	"amxts": {
+		"module": "src/index.ts",
+		"natives": "src/natives.ts",
+		"include": "include/universal_config.inc"
+	},
+	"scripts": {
+		"test": "bun test",
+		"check": "amxts check",
+		"lint": "oxlint && oxfmt --check",
+		"lint:fix": "oxfmt && oxlint --fix --silent || oxlint --fix --silent || oxlint --fix"
+	},
+	"peerDependencies": {
+		"@amxts/core": "file:../../ts2pawn"
+	},
+	"devDependencies": {
+		"@e18e/eslint-plugin": "^0.8.1",
+		"@eslint-community/eslint-plugin-eslint-comments": "^4.8.1",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@types/bun": "^1.4.2",
+		"eslint-plugin-antfu": "^3.2.3",
+		"eslint-plugin-command": "^4.0.0",
+		"eslint-plugin-n": "^18.4.0",
+		"eslint-plugin-perfectionist": "^5.12.1",
+		"eslint-plugin-regexp": "^3.3.1",
+		"oxfmt": "^0.70.0",
+		"oxlint": "^1.85.0",
+		"typescript": "^6.0.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "config-core-playground",
+	"type": "module",
+	"private": true,
+	"description": "A project with Config Core in it: try the module here, and its tests load this project.",
+	"devDependencies": {
+		"@amxts/config-core": "file:.."
+	}
+}

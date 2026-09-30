@@ -1,0 +1,11 @@
+# The API's tooltips are committed in English whatever language the tree is
+# in: the amxts core's scripts/apply-docs.ts writes the language AMXTS_DOCS_LANG
+# picks from scripts/docs/src/ and registers this filter's clean command.
+src/index.ts filter=amxts-docs
+src/types.ts filter=amxts-docs
+
+# oxfmt writes LF: the files it formats keep LF when checked out on Windows too.
+*.json text eol=lf
+*.jsonc text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
