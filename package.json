@@ -44,7 +44,7 @@
 		"lint:fix": "oxfmt && oxlint --fix --silent || oxlint --fix --silent || oxlint --fix"
 	},
 	"peerDependencies": {
-		"@amxts/core": "file:../../ts2pawn"
+		"@amxts/core": "file:../../amxts"
 	},
 	"devDependencies": {
 		"@e18e/eslint-plugin": "^0.8.1",
