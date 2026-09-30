@@ -195,7 +195,7 @@ enabled = 1
 - **YAML:** mappings and lists, indented or in `{ }` and `[ ]`; plain, `'single'` and `"double"`-quoted text with its escapes; `|` and `>` blocks for text of several lines; numbers, `true`/`false`, `null` and `~` as YAML 1.2 reads them — `yes` is text; `#` comments; `---` before the document and `...` after it.
 - **Not read in YAML:** anchors and aliases (`&`, `*`), tags (`!`), complex keys (`?`), directives (`%YAML`), several documents in one file, and a plain value going on over several lines. The file then reads empty, and the console names the line and the column: `configs/settings.yaml:4:9: anchors and aliases (& and *) are not supported - write the value out`.
 - **JSON:** as JSON is written, plus JSONC's `//` and `/* */` comments and a comma after the last member or item — in `.json` files too.
-- **INI:** each `[section]` is an object of the top — `[chat]` with `prefix = [Server]` is `settings.chat.prefix`; a line of several values is a list; a `key = { ... }` block is an object, or a list of rows. Keys in a section are found in any case, as the Pawn natives find them; a section's name is as written. An INI file has no place for a value at the top of the object that is not an object, nor for a list of objects: in an INI file such a field stays its default, and the console says so — write that config in YAML or JSON.
+- **INI:** each `[section]` is an object of the top — `[chat]` with `prefix = [Server]` is `settings.chat.prefix`; a line of several values is a list; a `key = { ... }` block is an object, or a list of rows. The rules INI adds are under [INI files](#ini-files).
 - **Saving** writes the file in its own format: comments on lines of their own and blank lines stay; a comment after a value on its line, and comments inside `{ }` and `[ ]` in YAML, do not. JSON keeps its indentation.
 
 ## INI files
@@ -234,10 +234,15 @@ for (const row of settings.MAIN.CVARS) {
 }
 ```
 
-- Keys in a section are found in any case; a section's name is as written, and a name the file has twice is its last section.
-- A value with spaces is quoted: `TITLE = "Main menu"`. Unquoted, it is a list of words, and a text field keeps its default and says why.
 - A block of rows stays a block when the object is saved — rows of one value too; the comments above its rows stay.
-- A path into the tree of such a file (`configs.read()`) is written the same way: `MAIN.HUD.HIDE_TIME[0]`, `MAIN.CVARS[1][0]`.
+- A path into the tree of such a file (`configs.read()`) is written the same way: `MAIN.HUD.HIDE_TIME[0]`, `MAIN.CVARS[1][0]`. An item of a list is `[0]`: `MAIN.MAPS.0` looks for a key `0`.
+
+> [!WARNING]
+> **In an INI file:**
+>
+> - **Keys are found in any case, as the Pawn natives find them; section names are not:** `[main]` is not `MAIN`. A name the file has twice is its last section.
+> - **A value with spaces is quoted:** `TITLE = "Main menu"`. Unquoted, it is a list of words: a text field keeps its default and says why, and Pawn's `cfg_*` natives and Menu Core read the first word.
+> - **No place for a value at the top of the object that is not an object, nor for a list of objects:** in an INI file such a field stays its default, and the console says so once — write that config in YAML or JSON.
 
 ## Pawn plugins
 
