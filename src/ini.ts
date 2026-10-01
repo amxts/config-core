@@ -6,7 +6,7 @@
  * part of the API: a TypeScript plugin reads a config with `load()` or
  * `read()`.
  */
-import * as fs from "~/fs";
+import * as fs from "@amxts/core/fs";
 import { configPath, writeLines } from "./files";
 import { writeComments } from "./tree";
 

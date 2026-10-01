@@ -2,8 +2,8 @@
  * Config Core for Pawn plugins: the 28 cfg_* natives of the original
  * universal_config.amxx, as include/universal_config.inc declares them.
  */
-import { Player, plugin, print, server } from "~/facade";
-import { console_print } from "~/natives";
+import { Player, plugin, print, server } from "@amxts/core";
+import { console_print } from "@amxts/core/natives";
 import { setBaseDir } from "./index";
 import * as ini from "./ini";
 

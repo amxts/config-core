@@ -2,9 +2,9 @@
  * Where Config Core's files are: the folder under configs/ that names are
  * relative to, and writing lines to a file. Not part of the API.
  */
-import * as fs from "~/fs";
-import { EOL } from "~/os";
-import { server } from "~/facade";
+import * as fs from "@amxts/core/fs";
+import { EOL } from "@amxts/core/os";
+import { server } from "@amxts/core";
 
 let baseDir = "";
 

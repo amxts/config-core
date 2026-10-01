@@ -3,7 +3,7 @@
  * object and written back, or read as a tree of values when the shape is not
  * known beforehand. How to use it: README.md.
  */
-import * as fs from "~/fs";
+import * as fs from "@amxts/core/fs";
 import { ConfigFormat, ConfigKind, ConfigCoreOptions } from "./types";
 import { TreeDocument, TreeNode } from "./internal";
 import * as tree from "./tree";
