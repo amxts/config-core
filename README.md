@@ -246,4 +246,12 @@ for (const row of settings.MAIN.CVARS) {
 
 ## Pawn plugins
 
-Pawn plugins use Config Core through the 28 `cfg_*` natives of `universal_config.inc` — `#include <universal_config>`, which the package ships in `include/`; compiled `.amxx` plugins work unchanged. The natives read INI files. In `plugins.ini` it takes the place of `universal_config.amxx`. When no TypeScript plugin of the project uses the module, `pawn: ["@amxts/config-core"]` in `amxts.config.ts` keeps it in the build for them. The details: [PAWN.md](PAWN.md).
+A Pawn plugin reads and writes configs through Config Core too, with its 28 natives whose names start with `cfg_`: `cfg_load_file`, `cfg_get_value`, `cfg_set_int` and the rest. They read INI files. The package ships their include in `include/`:
+
+```pawn
+#include <universal_config>
+```
+
+A Pawn plugin already compiled against this include works as it is, with nothing to rebuild.
+
+Config Core runs on the server as one of the project's plugins. When no TypeScript plugin of the project uses it, keep it in the build for the Pawn plugins: `pawn: ["@amxts/config-core"]` in `amxts.config.ts`. Every native with its signature: [PAWN.md](PAWN.md).

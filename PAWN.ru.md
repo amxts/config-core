@@ -4,7 +4,7 @@
 
 Config Core отдаёт Pawn-плагинам 28 нативов из `universal_config.inc` — `cfg_load_file`, `cfg_get_value`, `cfg_set_int` и остальные — с их сигнатурами, так что собранные `.amxx`-плагины (в том числе Pawn-плагины, работающие с Menu Core) работают без изменений.
 
-Он встаёт на место `universal_config.amxx`: тот закомментируйте в `plugins.ini` — два плагина не могут отдавать одни и те же нативы. Pawn-плагины пишут `#include <universal_config>`; в пакете лежит `include/universal_config.inc`.
+Pawn-плагины пишут `#include <universal_config>`; в пакете лежит `include/universal_config.inc`. Отдавать эти нативы на сервере может только один плагин: если в `plugins.ini` есть другой Pawn-плагин с нативами `cfg_*`, закомментируйте его.
 
 ## Как работают нативы
 
