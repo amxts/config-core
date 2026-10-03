@@ -36,7 +36,7 @@ server.addEventListener("init", () => {
 	console.log("[ConfigCore] Plugin initialized (v0.1.0)");
 });
 
-server.addCommand("dump_config", ({ player }) => dumpConfig(player), { access: "Cvar", description: "Dumps all configurations" });
+server.addCommand("dump_config", ({ player }) => dumpConfig(player), { access: "cvar", description: "Dumps all configurations" });
 
 /** Every loaded section and its entries: headings to the admin's console, entries to the server's, as the original does. */
 function dumpConfig(player: Player) {
