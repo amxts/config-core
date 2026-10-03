@@ -246,4 +246,12 @@ for (const row of settings.MAIN.CVARS) {
 
 ## Pawn-плагины
 
-Pawn-плагины работают с Config Core через 28 нативов `cfg_*` из `universal_config.inc` — `#include <universal_config>`, который лежит в пакете в `include/`; собранные `.amxx`-плагины работают без изменений. Нативы читают INI-файлы. В `plugins.ini` он встаёт на место `universal_config.amxx`. Когда модулем не пользуется ни один плагин проекта на TypeScript, `pawn: ["@amxts/config-core"]` в `amxts.config.ts` оставляет его в сборке для них. Подробности — в [PAWN.ru.md](PAWN.ru.md).
+Pawn-плагин тоже читает и пишет конфиги через Config Core — 28 нативами, имена которых начинаются с `cfg_`: `cfg_load_file`, `cfg_get_value`, `cfg_set_int` и остальные. Они читают INI-файлы. Их include лежит в пакете в `include/`:
+
+```pawn
+#include <universal_config>
+```
+
+Pawn-плагин, уже собранный с этим include, работает как есть — пересобирать ничего не нужно.
+
+Config Core работает на сервере как один из плагинов проекта. Если им не пользуется ни один плагин проекта на TypeScript, оставьте его в сборке для Pawn-плагинов: `pawn: ["@amxts/config-core"]` в `amxts.config.ts`. Все нативы с сигнатурами — в [PAWN.ru.md](PAWN.ru.md).
