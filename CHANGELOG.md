@@ -22,6 +22,10 @@ None in config-core itself; it needs `@amxts/core` 0.2.
 | --- | --- | --- |
 | `@amxts/core` | `^0.1.0` | `^0.2.0` |
 
+### 🩹 Fixes
+
+- The plugin's version is the package's ([c53a7ee](https://github.com/amxts/config-core/commit/c53a7ee))
+
 ### 💅 Refactors
 
 - Import the core's API by its package name ([7e12991](https://github.com/amxts/config-core/commit/7e12991))
