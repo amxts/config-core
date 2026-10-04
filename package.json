@@ -1,7 +1,7 @@
 {
 	"name": "@amxts/config-core",
 	"type": "module",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Configs in INI, YAML or JSON for amxts plugins, read into typed objects and written back - and the cfg_* natives for Pawn plugins.",
 	"author": {
 		"name": "kukson777",

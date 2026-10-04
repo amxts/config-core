@@ -1,5 +1,27 @@
 # Changelog
 
+## v0.1.2
+
+[compare changes](https://github.com/amxts/config-core/compare/v0.1.1...v0.1.2)
+
+### Summary
+
+Built for `@amxts/core` 0.2.2: the package's prebuilt plugin is compiled with that core, so a project on 0.2.2 takes it as it is instead of compiling the module on its first build. The module's API does not change.
+
+### ⬆️ Upgrade guide
+
+`npx amxts upgrade` in the project takes it with the core.
+
+### 📦 Dependencies
+
+| Package | Range |
+| --- | --- |
+| `@amxts/core` | `^0.2.0`, prebuilt for 0.2.2 |
+
+### ❤️ Contributors
+
+- Ernest Manukyan ([@kukson777](https://github.com/kukson777))
+
 ## v0.1.1
 
 [compare changes](https://github.com/amxts/config-core/compare/v0.1.0...v0.1.1)
