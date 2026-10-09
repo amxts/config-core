@@ -8,6 +8,10 @@
 
 For amxts 0.3: needs `@amxts/core` 0.3 - it prints with `player.print`, which 0.3 brings. `amxts upgrade` moves a project to it.
 
+### 🩹 Fixes
+
+- The plugin says its version, `0.2.0` ([f85ddc8](https://github.com/amxts/config-core/commit/f85ddc8))
+
 ### 💅 Refactors
 
 - `player.print`, not the free print ([cc0fc72](https://github.com/amxts/config-core/commit/cc0fc72))
