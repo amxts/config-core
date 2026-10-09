@@ -2,7 +2,7 @@
  * Config Core for Pawn plugins: the 28 cfg_* natives of the original
  * universal_config.amxx, as include/universal_config.inc declares them.
  */
-import { Player, plugin, print, server } from "@amxts/core";
+import { Player, plugin, server } from "@amxts/core";
 import { console_print } from "@amxts/core/natives";
 import { setBaseDir } from "./index";
 import * as ini from "./ini";
@@ -40,9 +40,9 @@ server.addCommand("dump_config", ({ player }) => dumpConfig(player), { access: "
 
 /** Every loaded section and its entries: headings to the admin's console, entries to the server's, as the original does. */
 function dumpConfig(player: Player) {
-	print(player, "Current Configuration Dump:", "console");
+	player.print("Current Configuration Dump:", "console");
 	for (const section of ini.dump()) {
-		print(player, section.heading, "console");
+		player.print(section.heading, "console");
 		for (const line of section.lines) console_print(0, line);
 	}
 }

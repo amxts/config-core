@@ -7,7 +7,7 @@ server.addCommand("/rules", ({ player }) => {
 		chat: { prefix: "[Server]", rules: ["Be nice"] },
 		stats: { shown: 0 },
 	});
-	for (const rule of rules.chat.rules) print(player, `${rules.chat.prefix} ${rule}`);
+	for (const rule of rules.chat.rules) player.print(`${rules.chat.prefix} ${rule}`);
 
 	rules.stats.shown++;
 	configs.save(rules);
