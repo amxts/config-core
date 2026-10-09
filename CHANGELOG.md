@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.2.0
+
+[compare changes](https://github.com/amxts/config-core/compare/v0.1.2...v0.2.0)
+
+### Summary
+
+For amxts 0.3: needs `@amxts/core` 0.3 - it prints with `player.print`, which 0.3 brings. `amxts upgrade` moves a project to it.
+
+### 💅 Refactors
+
+- `player.print`, not the free print ([cc0fc72](https://github.com/amxts/config-core/commit/cc0fc72))
+
+### 📖 Documentation
+
+
+### ❤️ Contributors
+
+- Ernest Manukyan ([@kukson777](https://github.com/kukson777))
+
 ## v0.1.2
 
 [compare changes](https://github.com/amxts/config-core/compare/v0.1.1...v0.1.2)
