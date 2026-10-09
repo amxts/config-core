@@ -7,7 +7,7 @@ import { console_print } from "@amxts/core/natives";
 import { setBaseDir } from "./index";
 import * as ini from "./ini";
 
-plugin({ name: "Config Core", version: "0.1.2", author: "kukson777", description: "INI configs for plugins: the cfg_* natives", include: "universal_config.inc" });
+plugin({ name: "Config Core", version: "0.2.0", author: "kukson777", description: "INI configs for plugins: the cfg_* natives", include: "universal_config.inc" });
 
 /** A loaded config file. */
 export enum ConfigFile {
@@ -33,7 +33,7 @@ export enum ContentType {
 }
 
 server.addEventListener("init", () => {
-	console.log("[ConfigCore] Plugin initialized (v0.1.2)");
+	console.log("[ConfigCore] Plugin initialized (v0.2.0)");
 });
 
 server.addCommand("dump_config", ({ player }) => dumpConfig(player), { access: "cvar", description: "Dumps all configurations" });
