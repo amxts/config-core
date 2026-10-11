@@ -2,11 +2,13 @@
 
 ## v0.2.0
 
+> Config Core for amxts 0.3. It needs `@amxts/core` 0.3, and `npx amxts upgrade` moves a project to it.
+
+Nothing changes for you in how configs are read. The plugin prints through the 0.3 core's `player.print` ([cc0fc72](https://github.com/amxts/config-core/commit/cc0fc72)), which 0.2 doesn't have, so this is a minor release with the new core as its minimum. It also reports its version, `0.2.0` ([f85ddc8](https://github.com/amxts/config-core/commit/f85ddc8)).
+
+### 👉 Changelog
+
 [compare changes](https://github.com/amxts/config-core/compare/v0.1.2...v0.2.0)
-
-### Summary
-
-For amxts 0.3: needs `@amxts/core` 0.3 - it prints with `player.print`, which 0.3 brings. `amxts upgrade` moves a project to it.
 
 ### 🩹 Fixes
 
@@ -15,9 +17,6 @@ For amxts 0.3: needs `@amxts/core` 0.3 - it prints with `player.print`, which 0.
 ### 💅 Refactors
 
 - `player.print`, not the free print ([cc0fc72](https://github.com/amxts/config-core/commit/cc0fc72))
-
-### 📖 Documentation
-
 
 ### ❤️ Contributors
 
