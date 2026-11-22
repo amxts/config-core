@@ -33,7 +33,8 @@ export function config_get(name: string, path: string) {
 /**
  * Changes a config file and saves it: a line an edit - "path=text",
  * "path=#number", "path=?boolean", "path=[a,b]" for a list, "-path" to
- * remove. The answers, 1 or 0 an edit, then the save's.
+ * remove, "!path=comment" for the comment before it ("|" between its
+ * lines). The answers, 1 or 0 an edit, then the save's.
  */
 export function config_edit(name: string, edits: string) {
 	const config = configs.read(name);
@@ -54,6 +55,7 @@ function apply(config: ConfigNode, edit: string) {
 	const equals = edit.indexOf("=");
 	const path = edit.slice(0, equals);
 	const value = edit.slice(equals + 1);
+	if (path.startsWith("!")) return config.setComment(path.slice(1), value.replaceAll("|", "\n"));
 	if (value.startsWith("#")) return config.setNumber(path, parseFloat(value.slice(1)));
 	if (value.startsWith("?")) return config.setBoolean(path, value == "?true");
 	if (value.startsWith("[")) return config.setStrings(path, value.slice(1, -1).split(","));

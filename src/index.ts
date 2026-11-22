@@ -75,6 +75,12 @@ function formatOf(file: string) {
 	return "ini";
 }
 
+/** What starts a comment line in a format. */
+function commentMark(format: ConfigFormat) {
+	if (format == "ini") return ";";
+	return format == "yaml" ? "#" : "//";
+}
+
 function report(file: string, line: number, column: number, message: string) {
 	console.error(`[ConfigCore] ${file.length > 0 ? file : "text"}:${line}:${column}: ${message}`);
 }
@@ -298,6 +304,30 @@ export class ConfigNode {
 		else if (parent.kind == "array") index = tree.itemIndex(last);
 		if (index < 0 || index >= parent.items.length) return false;
 		parent.items.splice(index, 1);
+		return true;
+	}
+
+	/**
+	 * Sets the comment written on the lines before the value a path leads to -
+	 * this value for `""` - in place of the one it has: each line of the text
+	 * after the format's mark, `;` in INI, `#` in YAML, `//` in JSON. `""`
+	 * removes it. `false` when the path leads to no value, and for the top of
+	 * an INI file, which has no line of its own.
+	 *
+	 *     maps.setStrings("de_dust2.2x2", ["240", "90"]);
+	 *     maps.setComment("de_dust2.2x2", "ROUND TIME | FREEZE TIME");
+	 */
+	setComment(path: string, comment: string) {
+		const found = tree.follow(this.node, path);
+		const document = this.loaded.document;
+		if (found == null || (document.format == "ini" && found == document.root)) return false;
+		// The blank lines before the old comment stay: they part the value from the one above.
+		const old = found.comments ?? [];
+		const text = old.findIndex(line => line.length > 0);
+		const mark = commentMark(document.format);
+		const lines = comment.length > 0 ? comment.split("\n").map(line => line.length > 0 ? `${mark} ${line}` : mark) : [];
+		const comments = old.slice(0, text < 0 ? old.length : text).concat(lines);
+		found.comments = comments.length > 0 ? comments : null;
 		return true;
 	}
 

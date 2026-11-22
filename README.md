@@ -148,6 +148,7 @@ A value is a `ConfigNode`: an object, an array, text, a number, a boolean or nul
 | `keys(path?)` · `values(path?)` | An object's keys; an array's items or an object's values. |
 | `getString(path?, fallback?)` · `getNumber` · `getBoolean` · `getStrings` | A value as text, a number, a boolean, a list of text. |
 | `set(path, text)` · `setNumber` · `setBoolean` · `setStrings` | Sets a value, making the objects on its path; `false` where the path goes through text or a number. |
+| `setComment(path, text)` | Writes a comment on the lines before a value, after the format's mark (`;`, `#`, `//`); `""` removes it. |
 | `remove(path)` · `save()` | Removes a value; writes the whole file back in its format. |
 
 ## File formats

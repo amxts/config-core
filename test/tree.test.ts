@@ -360,6 +360,20 @@ describe("writing back", () => {
 		));
 	});
 
+	test("a comment set before a value, after the format's mark; the blank lines above it kept, \"\" removes it", async () => {
+		const { edit, file } = await boot({
+			"c.yaml": "a: 1\n\n# old\nb: 2\n",
+			"c.json": "{\n\t\"a\": 1\n}\n",
+			"c.ini": "[MAIN]\n; old\nK = v\n",
+		});
+		expect(edit("c.yaml", "!b=new|second", "c.d=x", "!c.d=made", "!nope=x")).toBe("11101");
+		expect(file("c.yaml")).toBe(lines("a: 1", "", "# new", "# second", "b: 2", "c:", "  # made", "  d: x", ""));
+		expect(edit("c.json", "!a=one", "!=top")).toBe("111");
+		expect(file("c.json")).toBe(lines("// top", "{", "\t// one", "\t\"a\": 1", "}", ""));
+		expect(edit("c.ini", "!MAIN.K=", "!MAIN=section", "!=top")).toBe("1101"); // the top of an INI file has no line
+		expect(file("c.ini")).toBe(lines("; section", "[MAIN]", "K = v", ""));
+	});
+
 	test("what YAML writes reads back the same", async () => {
 		const yaml = "a: \"12\"\nb: \"yes\"\nc: \"- x\"\nd: \"a: b\"\ne: \"%name%\"\nf: \"line\\nnext\"\ng: \"\"\nh: ~\ni: [1, 'two']\nj: {}\nk: \"!y[%d]!w\"\n";
 		const { dump, edit, file } = await boot({ "r.yaml": yaml });

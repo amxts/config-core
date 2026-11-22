@@ -143,6 +143,28 @@ export default {
 		en: `Sets a list of text at a path, as \`set()\` sets text.`,
 		ru: `Записывает список текста по пути, как \`set()\` записывает текст.`,
 	},
+	"ConfigNode.setComment": {
+		en: `
+			Sets the comment written on the lines before the value a path leads to -
+			this value for \`""\` - in place of the one it has: each line of the text
+			after the format's mark, \`;\` in INI, \`#\` in YAML, \`//\` in JSON. \`""\`
+			removes it. \`false\` when the path leads to no value, and for the top of
+			an INI file, which has no line of its own.
+
+			    maps.setStrings("de_dust2.2x2", ["240", "90"]);
+			    maps.setComment("de_dust2.2x2", "ROUND TIME | FREEZE TIME");
+		`,
+		ru: `
+			Задаёт комментарий на строках перед значением, к которому ведёт путь, —
+			перед этим значением для \`""\` — вместо прежнего: каждую строку текста
+			после знака формата, \`;\` в INI, \`#\` в YAML, \`//\` в JSON. \`""\`
+			убирает его. \`false\`, если путь не ведёт ни к какому значению, и для
+			верха INI-файла: у него нет своей строки.
+
+			    maps.setStrings("de_dust2.2x2", ["240", "90"]);
+			    maps.setComment("de_dust2.2x2", "ROUND TIME | FREEZE TIME");
+		`,
+	},
 	"ConfigNode.remove": {
 		en: `Removes the value a path leads to; \`false\` when there was none.`,
 		ru: `Удаляет значение, к которому ведёт путь; \`false\`, если его не было.`,
