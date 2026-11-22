@@ -33,7 +33,7 @@ export enum ContentType {
 }
 
 server.addEventListener("init", () => {
-	console.log("[ConfigCore] Plugin initialized (v0.2.0)");
+	console.log("[ConfigCore] Plugin initialized");
 });
 
 server.addCommand("dump_config", ({ player }) => dumpConfig(player), { access: "cvar", description: "Dumps all configurations" });
