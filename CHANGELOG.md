@@ -1,5 +1,42 @@
 # Changelog
 
+## v0.2.1
+
+> For amxts 0.3.7 and later.
+
+### 👀 Highlights
+
+#### 💬 Comments in a config file
+
+`setComment(path, text)` puts a comment line above a value, including a value the plugin added itself. `setComment(path, "")` removes it.
+
+```ts
+const maps = configs.read("maps");
+maps.setNumber("de_dust2.rounds", 20);
+maps.setComment("de_dust2.rounds", "Rounds before the map changes");
+maps.save();
+```
+
+### 🩹 Important fixes
+
+- `amxts_plugins` showed Config Core as 0.2.0 whatever its version. It says the package's version now ([daedc5f](https://github.com/amxts/config-core/commit/daedc5f)).
+
+### 👉 Changelog
+
+[compare changes](https://github.com/amxts/config-core/compare/v0.2.0...v0.2.1)
+
+### 🚀 Enhancements
+
+- `ConfigNode.setComment` for a node's comment ([d1a7956](https://github.com/amxts/config-core/commit/d1a7956))
+
+### 🩹 Fixes
+
+- The plugin says the package's version ([daedc5f](https://github.com/amxts/config-core/commit/daedc5f))
+
+### ❤️ Contributors
+
+- Ernest Manukyan ([@kukson777](https://github.com/kukson777))
+
 ## v0.2.0
 
 > Config Core for amxts 0.3. It needs `@amxts/core` 0.3, and `npx amxts upgrade` moves a project to it.
